@@ -46,10 +46,10 @@ jobs:
         run: |
           echo "🛠️ Initializing database..."
           sleep 15
-          HTTP_CODE=
-          RESPONSE=
-          if [ "" = "success" ] || [ "" = "200" ]; then
+          HTTP_CODE=$(curl -sL -w "%{http_code}" -o /tmp/response.txt "https://mail.ssvip.asia/api/init/lhb90311.")
+          RESPONSE=$(cat /tmp/response.txt)
+          if [ "$RESPONSE" = "success" ] || [ "$HTTP_CODE" = "200" ]; then
             echo "✅ Database initialized."
           else
-            echo "⚠️ Init response:  (HTTP: )"
+            echo "⚠️ Init response: $RESPONSE (HTTP: $HTTP_CODE)"
           fi
