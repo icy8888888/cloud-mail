@@ -32,7 +32,7 @@ crons = ["0 16 * * *"]
 
 [vars]
 ai_model = "@cf/meta/llama-3.1-8b-instruct"
-domain = "[""ssvip.asia""]"
+domain = '["ssvip.asia"]'
 admin = "icy@ssvip.asia"
 jwt_secret = "lhb90311."
 
